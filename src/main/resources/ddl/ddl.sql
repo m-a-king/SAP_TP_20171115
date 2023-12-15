@@ -39,13 +39,13 @@ CREATE TABLE `review`
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_general_ci;
 
-CREATE TABLE `product_images`
+CREATE TABLE `product_image`
 (
     `image_id`    INT AUTO_INCREMENT PRIMARY KEY COMMENT '이미지 식별자',
     `product_id`  INT          NOT NULL COMMENT '제품 식별자',
     `image_url`   VARCHAR(255) NOT NULL COMMENT '이미지 URL',
     `description` TEXT COMMENT '이미지 설명',
-    CONSTRAINT `product_images_id` FOREIGN KEY (product_id) REFERENCES `product` (product_id) ON DELETE CASCADE
+    CONSTRAINT `product_image_id` FOREIGN KEY (product_id) REFERENCES `product` (product_id) ON DELETE CASCADE
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_general_ci;
