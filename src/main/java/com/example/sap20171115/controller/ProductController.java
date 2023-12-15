@@ -2,6 +2,7 @@ package com.example.sap20171115.controller;
 
 import com.example.sap20171115.entity.Product;
 import com.example.sap20171115.entity.ProductImage;
+import com.example.sap20171115.entity.Specification;
 import com.example.sap20171115.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -36,6 +37,16 @@ public class ProductController {
     @GetMapping("/image/all")
     public List<ProductImage> getAllImages(){
         return productService.getAllImages();
+    }
+
+    @GetMapping("/spec/{productIdx}")
+    public Specification getSpec(@PathVariable("productIdx") int productIdx) {
+        return productService.getSpec(productIdx);
+    }
+
+    @GetMapping("/spec/all")
+    public List<Specification> getAllSpecs(){
+        return productService.getAllSpecs();
     }
 
 }
