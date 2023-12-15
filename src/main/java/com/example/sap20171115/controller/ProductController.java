@@ -2,6 +2,7 @@ package com.example.sap20171115.controller;
 
 import com.example.sap20171115.entity.Product;
 import com.example.sap20171115.entity.ProductImage;
+import com.example.sap20171115.entity.Review;
 import com.example.sap20171115.entity.Specification;
 import com.example.sap20171115.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -25,7 +26,7 @@ public class ProductController {
     }
 
     @GetMapping("/product/all")
-    public List<Product> getAllProducts(){
+    public List<Product> getAllProducts() {
         return productService.getAllProducts();
     }
 
@@ -35,7 +36,7 @@ public class ProductController {
     }
 
     @GetMapping("/image/all")
-    public List<ProductImage> getAllImages(){
+    public List<ProductImage> getAllImages() {
         return productService.getAllImages();
     }
 
@@ -45,8 +46,17 @@ public class ProductController {
     }
 
     @GetMapping("/spec/all")
-    public List<Specification> getAllSpecs(){
+    public List<Specification> getAllSpecs() {
         return productService.getAllSpecs();
     }
 
+    @GetMapping("/review/{productIdx}")
+    public Review getReview(@PathVariable("productIdx") int productIdx) {
+        return productService.getReview(productIdx);
+    }
+
+    @GetMapping("/review/all")
+    public List<Review> getAllReviews() {
+        return productService.getAllReviews();
+    }
 }

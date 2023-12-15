@@ -2,9 +2,11 @@ package com.example.sap20171115.service;
 
 import com.example.sap20171115.entity.Product;
 import com.example.sap20171115.entity.ProductImage;
+import com.example.sap20171115.entity.Review;
 import com.example.sap20171115.entity.Specification;
 import com.example.sap20171115.repository.ProductImageRepository;
 import com.example.sap20171115.repository.ProductRepository;
+import com.example.sap20171115.repository.ReviewRepository;
 import com.example.sap20171115.repository.SpecificationRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -18,6 +20,7 @@ public class ProductService {
     private final ProductRepository productRepository;
     private final ProductImageRepository productImageRepository;
     private final SpecificationRepository specificationRepository;
+    private final ReviewRepository reviewRepository;
 
     public Product getProduct(int productId) {
         return productRepository.findByProductId(productId);
@@ -41,6 +44,14 @@ public class ProductService {
 
     public List<Specification> getAllSpecs(){
         return specificationRepository.findAll();
+    }
+
+    public Review getReview(int productId){
+        return reviewRepository.findByProductId(productId);
+    }
+
+    public List<Review> getAllReviews(){
+        return reviewRepository.findAll();
     }
 
 }
