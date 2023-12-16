@@ -50,5 +50,9 @@ public class ProductService {
         return reviewRepository.findAllByProductId(productId);
     }
 
+    public List<Review> getAllReviews(){
+        return reviewRepository.findAll();
+    }
+
 
 }

@@ -54,4 +54,9 @@ public class ProductController {
     public List<Review> getReview(@PathVariable("productIdx") int productIdx) {
         return productService.getReview(productIdx);
     }
+
+    @GetMapping("/review/all")
+    public List<Review> getAllReviews() {
+        return productService.getAllReviews();
+    }
 }
