@@ -46,12 +46,9 @@ public class ProductService {
         return specificationRepository.findAll();
     }
 
-    public Review getReview(int productId){
-        return reviewRepository.findByProductId(productId);
+    public List<Review> getReview(int productId){
+        return reviewRepository.findAllByProductId(productId);
     }
 
-    public List<Review> getAllReviews(){
-        return reviewRepository.findAll();
-    }
 
 }
